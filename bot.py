@@ -22,6 +22,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Salut ! Je suis KubeBuddy 🚀\n\nCommandes :\n/status → état du cluster\n/pods → liste des pods\nTout le reste → je répète ce que tu dis 😄")
 
 async def ratio(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(str(requests.get("https://google.com").status_code))
     await update.message.reply_text("bro est encore bloqué en 2023")
 
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
