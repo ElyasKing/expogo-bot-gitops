@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expogo-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: expogo-bot
+  template:
+    metadata:
+      labels:
+        app: expogo-bot
+    spec:
+      containers:
+      - name: bot
+        image: tonpseudo/expogo-bot:v1
+        env:
+        - name: TOKEN
+          value: "8448609111:AAE9xeu7I_jS2xqfH4fkVC6EwyqW9uMIRe4"  # À changer par Secret !
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: expogo-bot-service
+spec:
+  selector:
+    app: expogo-bot
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000  # si ton bot écoute sur 5000, sinon change
+  type: ClusterIP  # pas besoin de LoadBalancer pour un bot Telegram
