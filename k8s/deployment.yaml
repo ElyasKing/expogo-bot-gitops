@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: bot
-        image: elyas111/expogo-bot:2b1542cd12ed4b9e7a0136f7e8e0130692f9648e
+        image: elyas111/expogo-bot:9727f3e71e89a2ce6982ec12d70af37d73ec5034
         env:
         - name: TOKEN
           value: "8448609111:AAE9xeu7I_jS2xqfH4fkVC6EwyqW9uMIRe4"  # À changer par Secret !
