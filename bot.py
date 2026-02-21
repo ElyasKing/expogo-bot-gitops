@@ -19,6 +19,9 @@ def run_kubectl(cmd):
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Salut ! Je suis KubeBuddy 🚀\n\nCommandes :\n/status → état du cluster\n/pods → liste des pods\nTout le reste → je répète ce que tu dis 😄")
 
+async def ratio(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("bro est encore bloqué en 2023")
+
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     nodes = run_kubectl("kubectl get nodes --no-headers | wc -l")
     pods = run_kubectl("kubectl get pods -n default --no-headers | wc -l")
@@ -44,6 +47,7 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("status", status))
     app.add_handler(CommandHandler("pods", pods))
+    app.add_handler(CommandHandler("ratio", ratio))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
     
     print("Bot démarré !")
