@@ -21,11 +21,11 @@ jobs:
         with:
           context: .
           push: true
-          tags: tonpseudo/expogo-bot:${{ github.sha }}
+          tags: elyas111/expogo-bot:${{ github.sha }}
 
       - name: Update tag in manifest
         run: |
-          sed -i "s|image: tonpseudo/expogo-bot:.*|image: tonpseudo/expogo-bot:${{ github.sha }}|" k8s/deployment.yaml
+          sed -i "s|image: elyas111/expogo-bot:.*|image: elyas111/expogo-bot:${{ github.sha }}|" k8s/deployment.yaml
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add k8s/deployment.yaml
