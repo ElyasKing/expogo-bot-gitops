@@ -1,9 +1,7 @@
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 import subprocess
-import json
 import requests
-import faker
 
 TOKEN = "8448609111:AAE9xeu7I_jS2xqfH4fkVC6EwyqW9uMIRe4"
 
